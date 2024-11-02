@@ -17,7 +17,7 @@ function carp() {
     sayi1 = Number(sayi1)
     sayi2 = Number(sayi2)
 
-    let toplam = sayi1 * sayi2
+    let toplam = sayi1 / sayi2
 
     document.getElementById("sonuc").textContent = "Sonuç :" + toplam
 }
