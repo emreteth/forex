@@ -1,4 +1,3 @@
 from colorama import Back, Fore, Style
+import requests
 
-print(Fore.CYAN, "emre" ,Style.RESET_ALL)
-set
