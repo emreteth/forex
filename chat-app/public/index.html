@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Sohbet Uygulaması</title>
+  <style>
+    ul { list-style-type: none; padding: 0; }
+    li { padding: 8px; margin-bottom: 10px; background-color: #f3f3f3; }
+    input { padding: 8px; width: 90%; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div id="loginDiv">
+    <h2>Oturum Açın</h2>
+    <input id="usernameInput" placeholder="Kullanıcı adınızı girin" />
+    <button id="loginButton">Giriş Yap</button>
+  </div>
+
+  <div id="chatDiv" class="hidden">
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" placeholder="Mesajınızı yazın..." /><button>Gönder</button>
+    </form>
+  </div>
+
+  <!-- Socket.IO istemci kütüphanesini CDN üzerinden dahil edin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.8.1/socket.io.min.js" integrity="sha512-8ExARjWWkIllMlNzVg7JKq9RKWPlJABQUNq6YvAjE/HobctjH/NA+bSiDMDvouBVjp4Wwnf1VP1OEv7Zgjtuxw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    // Socket bağlantısını başlatın
+    const socket = io();
+
+    // DOM elementlerine referanslar
+    const loginDiv = document.getElementById('loginDiv');
+    const chatDiv = document.getElementById('chatDiv');
+    const usernameInput = document.getElementById('usernameInput');
+    const loginButton = document.getElementById('loginButton');
+    const messages = document.getElementById('messages');
+    const form = document.getElementById('form');
+    const input = document.getElementById('input');
+
+    // Giriş yap butonuna tıklama olayını dinleyin
+    loginButton.addEventListener('click', setUsername);
+
+    // Kullanıcı adını ayarlama fonksiyonu
+    function setUsername() {
+      const username = usernameInput.value.trim();
+      if (username) {
+        // Kullanıcı adını sunucuya gönderin
+        socket.emit('set username', username);
+
+        // Oturum açma ekranını gizleyin ve sohbet ekranını gösterin
+        loginDiv.classList.add('hidden');
+        chatDiv.classList.remove('hidden');
+      } else {
+        alert("Lütfen geçerli bir kullanıcı adı girin!");
+      }
+    }
+
+    // Mesaj gönderme işlemi
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit('chat message', input.value);
+        input.value = '';
+      }
+    });
+
+    // Sunucudan gelen mesajları dinleyin ve mesaj listesine ekleyin
+    socket.on('chat message', ({ user, msg }) => {
+      const item = document.createElement('li');
+      item.textContent = `${user}: ${msg}`;
+      messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+  </script>
+</body>
+</html>
