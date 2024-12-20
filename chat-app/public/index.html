@@ -8,6 +8,16 @@
     li { padding: 8px; margin-bottom: 10px; background-color: #f3f3f3; }
     input { padding: 8px; width: 90%; }
     .hidden { display: none; }
+
+    #logoutBtn{
+      border: none;
+      outline: none;
+      width: 100px;
+      height: 25px;
+      background: red;
+      color: white;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -22,6 +32,8 @@
     <form id="form" action="">
       <input id="input" autocomplete="off" placeholder="Mesajınızı yazın..." /><button>Gönder</button>
     </form>
+    <br>
+    <button id="logoutBtn">Çıkış Yap</button>
   </div>
 
   <!-- Socket.IO istemci kütüphanesini CDN üzerinden dahil edin -->
@@ -31,6 +43,7 @@
     const socket = io();
 
     // DOM elementlerine referanslar
+
     const loginDiv = document.getElementById('loginDiv');
     const chatDiv = document.getElementById('chatDiv');
     const usernameInput = document.getElementById('usernameInput');
@@ -38,6 +51,7 @@
     const messages = document.getElementById('messages');
     const form = document.getElementById('form');
     const input = document.getElementById('input');
+
 
     // Giriş yap butonuna tıklama olayını dinleyin
     loginButton.addEventListener('click', setUsername);
@@ -73,6 +87,13 @@
       messages.appendChild(item);
       window.scrollTo(0, document.body.scrollHeight);
     });
+
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+      socket.emit('logout')
+      socket.disconnect()
+      alert('Çıkış Yapıldı')
+      window.location.reload()
+    })
   </script>
 </body>
 </html>

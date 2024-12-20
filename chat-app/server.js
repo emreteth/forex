@@ -27,6 +27,10 @@ io.on('connection', (socket) => {
     io.emit('chat message', { user, msg });
   });
 
+  socket.on('logout', () => {
+    console.log(username + 'çıkış Yaptı')
+  })
+
   socket.on('disconnect', () => {
     const user = socket.username
     console.log(`${user}: ayrıldı`);
